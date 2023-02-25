@@ -1,1 +1,9 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+
+body{
+    margin: 20px;
+}
+
+button{
+    margin-top: 15px;
+}
