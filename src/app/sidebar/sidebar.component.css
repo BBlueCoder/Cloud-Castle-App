@@ -1,0 +1,39 @@
+#menu1:hover{
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.116);
+}
+
+#menuarrow1{
+    display: none;
+}
+
+#menu1:hover > #menuarrow1{
+    display: block;
+}
+
+.sidebar-item a i{
+    display: none;
+}
+
+.sidebar-item h2:hover{
+    cursor:default;
+}
+
+.sidebar-item:hover > a i{
+    display: block;
+}
+
+.sidebar-menu:hover, .sidebar-menu:hover > a{
+    cursor: pointer;
+    color: black !important;;
+}
+
+.rotated{
+    transform: rotate(-90deg);
+}
+
+@media(max-width: 992px){
+    .sidebar-item a i{
+        display: block;
+    }
+}

@@ -1,0 +1,36 @@
+<div class="d-flex flex-column pt-4">
+    <div class="flex-grow-1 px-2 text-light sidebar-item">
+        <h2 class="fs-6 fw-semibold d-inline-flex">File Types</h2>
+        <a (click)="rotateChevron($event.target)" class="float-end" data-bs-toggle="collapse" href="#filesCollapse" role="button" aria-expanded="false" aria-controls="collapseExample">
+            <i class="bi bi-chevron-down"></i>
+        </a>
+        <div class="collapse" id="filesCollapse">
+            <ul class="list-unstyled">
+                <li class="bg-secondary p-1 rounded" style="transform: rotate(0);">
+                    <i class="ps-3 bi bi-files text-primary"></i>
+                    <a (click)="sidebarActiveItem($event.target)" [routerLink]="['/']" href="#" class="ms-1 text-decoration-none text-light stretched-link">
+                        All
+                    </a>
+                </li>
+                <li class="p-1 rounded" style="transform: rotate(0);">
+                    <i class="ps-3 bi bi-images text-primary"></i>
+                    <a (click)="sidebarActiveItem($event.target)" routerLink="images" href="#" class="ms-1 text-decoration-none text-light stretched-link">
+                        Images
+                    </a>
+                </li>
+                <li class="p-1 rounded" style="transform: rotate(0);">
+                    <i class="ps-3 bi bi-camera-video text-primary"></i>
+                    <a (click)="sidebarActiveItem($event.target)" href="#" class="ms-1 text-decoration-none text-light stretched-link">
+                        Videos
+                    </a>
+                </li>
+                <li class="p-1 rounded" style="transform: rotate(0);">
+                    <i class="ps-3 bi bi-file-music text-primary"></i>
+                    <a (click)="sidebarActiveItem($event.target)" href="#" class="ms-1 text-decoration-none text-light stretched-link">
+                        Audios
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

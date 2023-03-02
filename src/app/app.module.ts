@@ -1,3 +1,4 @@
+import { DataService } from './services/data.service';
 import { UserService } from './services/user-service.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -14,7 +15,14 @@ import { NavbarComponent } from './navbar/navbar.component';
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
-  { path: '', component: HomeComponent }
+  { path: '', component: HomeComponent,
+  children: [
+    {
+      path: 'images',
+      component: SignupComponent
+    }
+  ] }
+
 ]
 
 @NgModule({
@@ -34,7 +42,8 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes)
   ],
   providers: [
-    UserService
+    UserService,
+    DataService
   ],
   bootstrap: [AppComponent]
 })

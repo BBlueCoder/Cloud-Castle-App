@@ -1,10 +1,34 @@
-import { Component } from '@angular/core';
+import { DataService } from './../services/data.service';
+import { Component, Input, OnChanges, OnDestroy, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit,OnDestroy {
+  
+  constructor(private dataService : DataService){
 
+  }
+  ngOnDestroy(): void {
+    this.dataService.toggleHome();
+  }
+
+  ngOnInit(): void {
+    this.dataService.isSideBarActive.subscribe(
+      isSideBarActive => {
+        const sideBarElement = document.getElementById("sidebar");
+        if(isSideBarActive){
+          sideBarElement?.classList.add("active");
+        }else{
+          sideBarElement?.classList.remove("active");
+        }
+      } 
+    )
+
+    this.dataService.toggleHome();
+  }
+
+  
 }
