@@ -11,6 +11,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { FilesDisplayComponent } from './files-display/files-display.component';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -18,8 +19,12 @@ const appRoutes: Routes = [
   { path: '', component: HomeComponent,
   children: [
     {
-      path: 'images',
-      component: SignupComponent
+      path: '',
+      component: FilesDisplayComponent
+    },
+    {
+      path: 'filetype/:type',
+      component: FilesDisplayComponent
     }
   ] }
 
@@ -32,7 +37,8 @@ const appRoutes: Routes = [
     SignupComponent,
     HomeComponent,
     SidebarComponent,
-    NavbarComponent
+    NavbarComponent,
+    FilesDisplayComponent
   ],
   imports: [
     BrowserModule,
