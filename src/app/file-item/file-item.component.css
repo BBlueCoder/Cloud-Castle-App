@@ -1,0 +1,39 @@
+* {
+    user-select: none;
+}
+
+.duration-badge{
+    background: rgba(0,0,0,.6);
+    font-size: 11px;
+    border-top-left-radius: 5px;
+}
+
+.favorite-badge{
+    cursor: pointer;
+    visibility: hidden;
+}
+
+.file-title{
+    font-size: 11px;
+    visibility: hidden;
+}
+
+.file-item:hover > .file-title{
+    visibility: visible;
+}
+
+.file-item:hover .favorite-badge{
+    visibility: visible;
+}
+
+.selected{
+    border: 3px solid #0D9CFC;
+    border-radius: 2px;
+}
+
+@media(max-width: 992px){
+    .thumbnail{
+        width: 100px;
+        height: 120px;
+    }
+}

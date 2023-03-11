@@ -1,0 +1,14 @@
+<div class="file-item" (click)="itemClick()">
+    <div class="position-relative" [ngClass]="{'selected':isItemSelected}" style="width: 90%;">
+        <img [attr.src]="thumbnailSrc | useHttpImage | async" alt="" width="100%">
+        <div *ngIf="file?.filetype?.includes('video')" class="position-absolute bottom-0 end-0 px-1 py-0 text-white duration-badge">
+            {{ formatDuration() }}
+        </div>
+        <div class="position-absolute bottom-0 start-0 text-white ps-2 fs-6 favorite-badge">
+            <i class="bi bi-heart"></i>
+        </div>
+    </div>
+    <div class="file-title text-center text-secondary">
+        {{ fileName }}
+    </div>
+</div>

@@ -25,11 +25,11 @@
 </div>
 
 
-
-<div class="row ">
-    <div class="col vh-100 p-0">
-        <div class="align-self-end">
-            gg
-        </div>
+<div class="row g-0 gy-3 overflow-auto mt-0" id="mainContent">
+    <div *ngFor="let item of files" class="col-3 col-md-2 mx-lg-0 col-xl-1 mx-xl-2 d-flex align-items-center">
+        <file-item [file]="item"></file-item>
     </div>
+
+    <div style="height: 50px;"></div>
 </div>
+

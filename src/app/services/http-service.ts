@@ -19,19 +19,26 @@ export class HttpService {
         ).pipe(catchError(this.handleError))
     }
 
-    private handleError(error : HttpErrorResponse){
-        switch(error.status){
-            case 401:{
-                return throwError(()=> new UnauthorizedError());
+    get<ResponseType>(endPoint: string, headers?: {}) {
+        return this.http.get<ResponseType>(
+            `${this.baseUrl}/${endPoint}`,
+            { headers }
+        ).pipe(catchError(this.handleError))
+    }
+
+    private handleError(error: HttpErrorResponse) {
+        switch (error.status) {
+            case 401: {
+                return throwError(() => new UnauthorizedError());
             }
             case 404: {
-                return throwError(()=> new NotFoundError());
+                return throwError(() => new NotFoundError());
             }
             case 406: {
-                return throwError(()=> new DuplicateUserError())
+                return throwError(() => new DuplicateUserError())
             }
             default: {
-                return throwError(()=> new AppError(error));
+                return throwError(() => new AppError(error));
             }
         }
     }

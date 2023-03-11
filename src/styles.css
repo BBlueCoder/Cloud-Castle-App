@@ -1,6 +1,12 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 @import "~bootstrap-icons/font/bootstrap-icons.css";
 
+html,body{
+    margin: 0;
+    padding: 0;
+}
 body{
     overflow: hidden;
+    height: 100vh;
+    width: 100vw;
 }
