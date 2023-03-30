@@ -10,7 +10,7 @@ export class InterceptorService implements HttpInterceptor{
         if(req.url.includes('files')){
             req = req.clone({
                headers:req.headers.set(
-                'Authentication', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODAxOTM1NTcsImRhdGEiOnsiaWQiOjMsInVzZXJuYW1lIjoidXNlcjIifSwiaWF0IjoxNjgwMTkxNDU3fQ.bK2wq1rok04D7eXq2e5mKcvYb7_CMsUNRfBKbnfyelo'
+                'Authentication', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODAxOTY3ODQsImRhdGEiOnsiaWQiOjMsInVzZXJuYW1lIjoidXNlcjIifSwiaWF0IjoxNjgwMTk0Njg0fQ.jgKrOgu9oeZg4WGA5K_TapGydXiNa5W6sVsZaoJuWRg'
                )
             });
         }

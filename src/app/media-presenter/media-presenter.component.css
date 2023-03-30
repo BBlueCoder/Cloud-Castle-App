@@ -38,6 +38,10 @@
     height: 30%;
 }
 
+.h-90 {
+    height: 90%;
+}
+
 .arrows > button {
     display: none;
 }

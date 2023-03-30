@@ -1,10 +1,10 @@
-<div class="z-2 position-absolute row p-0 g-0 gy-3 bg-primary w-100 h-100 media-presenter">
-    <div class="col-2 bg-secondary p-0 g-0 h-70 d-flex align-items-center justify-content-center arrows arrows-effect">
+<div class="z-2 position-absolute row p-0 g-0 gy-3 bg-primary w-100 media-presenter" style="height: 85%;">
+    <div class="col-2 bg-secondary p-0 g-0 d-flex align-items-center justify-content-center arrows arrows-effect">
         <button (click)="presentPrevious()" class="btn fs-1">
             <i class="bi bi-caret-left-fill"></i>
         </button>
     </div>
-    <div class="col-8 bg-success g-0 h-70 text-center">
+    <div class="col-8 bg-success g-0 text-center" style="height: 100%;">
         <div *ngIf="!selectedItem?.filetype!!.includes('video') && !selectedItem?.filetype!!.includes('audio')"
             id="file-thumbnail" class="position-relative h-100">
             <img [attr.src]="thumbnailSrc | useHttpImage | async" alt="" class="object-fit-contain media-thumbnail"
@@ -15,18 +15,18 @@
             <video id="video-player" height="100%" width="100%" [src]="fileSrc" controls>
             </video>
         </div>
-        <div *ngIf="selectedItem?.filetype!!.includes('audio')" class="h-100 position-relative">
+        <div *ngIf="selectedItem?.filetype!!.includes('audio')" class="h-90 position-relative">
             <div class="position-absolute top-50 start-50 translate-middle">
                 <audio [src]="fileSrc" controls></audio>
             </div>
         </div>
     </div>
-    <div class="col-2 bg-info g-0 h-70 d-flex align-items-center justify-content-center arrows arrows-effect">
+    <div class="col-2 bg-info g-0 h-100 d-flex align-items-center justify-content-center arrows arrows-effect">
         <button (click)="presentNext()" class="btn fs-1">
             <i class="bi bi-caret-right-fill"></i>
         </button>
     </div>
-    <div class="col-12 bg-danger h-30 g-0 d-none d-xl-block">
+    <!-- <div class="col-12 bg-danger h-30 g-0 d-none d-xl-block">
         bottom
-    </div>
+    </div> -->
 </div>
