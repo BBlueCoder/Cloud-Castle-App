@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'sidebar',
@@ -6,6 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent {
+
+  @Output() fileType = new EventEmitter();
 
   rotateChevron(target : any){
     const element = target as HTMLElement;
@@ -15,10 +17,11 @@ export class SidebarComponent {
     console.log(nextSib);
   }
 
-  sidebarActiveItem(target : any){
+  sidebarActiveItem(target : any,type? : string | undefined){
     const currentActiveItem = document.querySelector('li.bg-secondary');
     currentActiveItem?.classList.remove('bg-secondary');
     const listElement = (target as HTMLElement).parentElement;
     listElement?.classList.add("bg-secondary");
+    this.fileType.emit(type);
   }
 }

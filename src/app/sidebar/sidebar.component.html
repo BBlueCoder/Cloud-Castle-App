@@ -14,19 +14,19 @@
                 </li>
                 <li class="p-1 rounded" style="transform: rotate(0);">
                     <i class="ps-3 bi bi-images text-primary"></i>
-                    <a (click)="sidebarActiveItem($event.target)" [routerLink]="['filetype','images']" href="#" class="ms-1 text-decoration-none text-light stretched-link">
+                    <a (click)="sidebarActiveItem($event.target,'image')" [routerLink]="['/']" href="#" class="ms-1 text-decoration-none text-light stretched-link">
                         Images
                     </a>
                 </li>
                 <li class="p-1 rounded" style="transform: rotate(0);">
                     <i class="ps-3 bi bi-camera-video text-primary"></i>
-                    <a (click)="sidebarActiveItem($event.target)" [routerLink]="['filetype','videos']" href="#" class="ms-1 text-decoration-none text-light stretched-link">
+                    <a (click)="sidebarActiveItem($event.target,'video')" [routerLink]="['/']" href="#" class="ms-1 text-decoration-none text-light stretched-link">
                         Videos
                     </a>
                 </li>
                 <li class="p-1 rounded" style="transform: rotate(0);">
                     <i class="ps-3 bi bi-file-music text-primary"></i>
-                    <a (click)="sidebarActiveItem($event.target)" [routerLink]="['filetype','audios']" href="#" class="ms-1 text-decoration-none text-light stretched-link">
+                    <a (click)="sidebarActiveItem($event.target,'audio')" [routerLink]="['/']" href="#" class="ms-1 text-decoration-none text-light stretched-link">
                         Audios
                     </a>
                 </li>

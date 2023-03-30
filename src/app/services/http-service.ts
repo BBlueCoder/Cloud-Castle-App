@@ -19,11 +19,18 @@ export class HttpService {
         ).pipe(catchError(this.handleError))
     }
 
-    get<ResponseType>(endPoint: string, headers?: {}) {
+    get<ResponseType>(endPoint: string, headers?: {}, params = '') {
         return this.http.get<ResponseType>(
-            `${this.baseUrl}/${endPoint}`,
+            `${this.baseUrl}/${endPoint}?${params}`,
             { headers }
         ).pipe(catchError(this.handleError))
+    }
+
+    getFile(id: number, headers?: {}) {
+        return this.http.get(
+            `${this.baseUrl}/${id}`,
+            { headers }
+        ).pipe(catchError(this.handleError));
     }
 
     private handleError(error: HttpErrorResponse) {

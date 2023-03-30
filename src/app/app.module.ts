@@ -16,6 +16,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FilesDisplayComponent } from './files-display/files-display.component';
 import { FileItemComponent } from './file-item/file-item.component';
 import { UseHttpImagePipe } from './pipes/use-http-image.pipe';
+import { MediaPresenterComponent } from './media-presenter/media-presenter.component';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -44,7 +45,8 @@ const appRoutes: Routes = [
     NavbarComponent,
     FilesDisplayComponent,
     FileItemComponent,
-    UseHttpImagePipe
+    UseHttpImagePipe,
+    MediaPresenterComponent
   ],
   imports: [
     BrowserModule,

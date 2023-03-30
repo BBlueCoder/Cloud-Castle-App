@@ -1,4 +1,4 @@
-<div class="file-item" (click)="itemClick()">
+<div class="file-item" (click)="itemClick()" (dblclick)="itemDoubleClick()">
     <div class="position-relative" [ngClass]="{'selected':isItemSelected}" style="width: 90%;">
         <img [attr.src]="thumbnailSrc | useHttpImage | async" alt="" width="100%">
         <div *ngIf="file?.filetype?.includes('video')" class="position-absolute bottom-0 end-0 px-1 py-0 text-white duration-badge">

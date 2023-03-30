@@ -7,10 +7,11 @@ import { Component, Input, OnChanges, OnDestroy, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit,OnDestroy {
-  
-  constructor(private dataService : DataService){
 
-  }
+  fileType : string | undefined;
+  
+  constructor(private dataService : DataService){}
+
   ngOnDestroy(): void {
     this.dataService.toggleHome();
   }
@@ -28,6 +29,11 @@ export class HomeComponent implements OnInit,OnDestroy {
     )
 
     this.dataService.toggleHome();
+  }
+
+  onFileTypeChange(type : string | undefined){
+    console.log("------------------"+type);
+    this.fileType = type;
   }
 
   

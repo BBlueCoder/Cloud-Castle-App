@@ -1,0 +1,47 @@
+.media-presenter {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    animation-fill-mode: forwards;
+    visibility: hidden;
+}
+
+.media-thumbnail {
+    transform: scale(0);
+    transition: transform 0.3s ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+.media-thumbnail.zoom-in {
+    transform: scale(1);
+}
+
+
+.media-thumbnail.zoom-out {
+    transform: scale(0);
+}
+
+.media-presenter.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.media-presenter.hide {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.h-70 {
+    height: 70%;
+}
+
+.h-30 {
+    height: 30%;
+}
+
+.arrows > button {
+    display: none;
+}
+
+.arrows-effect:hover > button{
+    display: block;
+}

@@ -1,5 +1,7 @@
+import { Utils } from './../../utils/utils';
 import { FileResponse } from './../services/response-interfaces/file-response';
-import { Component, HostListener, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
+import { Constants } from 'src/utils/constants';
 
 @Component({
   selector: 'file-item',
@@ -8,6 +10,7 @@ import { Component, HostListener, Input, OnInit } from '@angular/core';
 })
 export class FileItemComponent implements OnInit {
   @Input() file?: FileResponse;
+  @Output() presentedItem = new EventEmitter();
 
   thumbnailSrc = '';
   isItemSelected = false;
@@ -15,11 +18,11 @@ export class FileItemComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.file?.filetype.includes("image") || this.file?.filetype.includes("video")) {
-      this.thumbnailSrc = `http://localhost:3000/api/files/thumbnail/${this.file.id}`;
+      this.thumbnailSrc = `${Constants.FILE_THUMBNAIL_ENDPOINT}${this.file.id}`;
     } else if (this.file?.filetype.includes("audio")) {
-      this.thumbnailSrc = './assets/img/audio-file-placeholder.svg'
+      this.thumbnailSrc = Constants.AUDIO_PLACEHOLDER_PATH;
     } else {
-      this.thumbnailSrc = './assets/img/file-placeholder.png';
+      this.thumbnailSrc = Constants.FILE_PLACEHOLDER_PATH;
     }
   }
 
@@ -27,15 +30,7 @@ export class FileItemComponent implements OnInit {
     const seconds = this.file?.duration!!;
     if (!seconds)
       return
-    let hours = Math.floor(seconds / 3600);
-    let minutes = Math.floor((seconds - (hours * 3600)) / 60);
-    let remainingSeconds = Math.floor(seconds % 60);
-
-    if (hours > 0) {
-      return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
-    } else {
-      return `${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
-    }
+    return Utils.formatDuration(seconds);
   }
 
   get fileName() {
@@ -47,6 +42,10 @@ export class FileItemComponent implements OnInit {
       return title.substring(0, 12).concat('...');
 
     return title;
+  }
+
+  itemDoubleClick(){
+    this.presentedItem.emit(this.file);
   }
 
   itemClick() {

@@ -1,10 +1,10 @@
-<div class="container-fluid d-flex flex-column">
-    <div class="row ">
-        <div class="col-auto bg-dark text-white vh-100" id="sidebar">
-            <sidebar></sidebar>
+<div class="container-fluid d-flex flex-column h-100">
+    <div class="row flex-grow-1">
+        <div class="col-auto bg-dark text-white" id="sidebar">
+            <sidebar (fileType)="onFileTypeChange($event)"></sidebar>
         </div>
-        <div class="col">
-            <router-outlet></router-outlet>
+        <div class="col bg-secondary p-0">
+            <files-display [fileType]="fileType"></files-display>
         </div>
     </div>
 </div>

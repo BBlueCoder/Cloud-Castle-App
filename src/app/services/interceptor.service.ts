@@ -9,11 +9,13 @@ export class InterceptorService implements HttpInterceptor{
         
         if(req.url.includes('files')){
             req = req.clone({
-                setHeaders: {
-                    Authentication: ''
-                }
+               headers:req.headers.set(
+                'Authentication', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODAxOTM1NTcsImRhdGEiOnsiaWQiOjMsInVzZXJuYW1lIjoidXNlcjIifSwiaWF0IjoxNjgwMTkxNDU3fQ.bK2wq1rok04D7eXq2e5mKcvYb7_CMsUNRfBKbnfyelo'
+               )
             });
         }
+
+        console.log(req.headers);
 
         return next.handle(req);
     }

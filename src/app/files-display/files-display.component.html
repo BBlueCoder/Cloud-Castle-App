@@ -1,6 +1,10 @@
 <div class="row shadow-sm "> <!-- Edit Tools row-->
     <div class="col-3 p-3 d-flex align-items-end">
-        <h2 class="fs-6 fw-bold">
+        <button (click)="closeMediaPresenter()" class="btn btn-light text-primary d-none" id="back-button">
+            <i class="bi bi-arrow-left"></i>
+            Back
+        </button>
+        <h2 class="fs-6 fw-bold ms-2">
             All Files
         </h2>
     </div>
@@ -25,11 +29,17 @@
 </div>
 
 
-<div class="row g-0 gy-3 overflow-auto mt-0" id="mainContent">
-    <div *ngFor="let item of files" class="col-3 col-md-2 mx-lg-0 col-xl-1 mx-xl-2 d-flex align-items-center">
-        <file-item [file]="item"></file-item>
+<div class="row p-0 h-100 mt-3 ms-0 bg-primary" >
+    <div class="col p-0 bg-warning">
+        <div class="position-relative m-0 h-100 bg-danger">
+            
+            <div class="z-3 position-absolute p-0 row g-0 gy-3 overflow-auto bg-success" id="">
+                <div *ngFor="let item of files" class="col-3 col-md-2 mx-lg-0 col-xl-1 mx-xl-2 d-flex justify-content-center align-items-center">
+                    <file-item [file]="item" (presentedItem)="presentItem($event)"></file-item>
+                </div>
+            </div>
+            <media-presenter [selectedItem]="currentFile" [items]="files"></media-presenter>
+        </div>
+        
     </div>
-
-    <div style="height: 50px;"></div>
 </div>
-

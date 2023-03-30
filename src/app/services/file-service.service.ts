@@ -9,10 +9,12 @@ import { Injectable } from '@angular/core';
 export class FileService extends HttpService {
 
   constructor(http: HttpClient) {
-    super("http://localhost:3000/api/files/", http);
+    super("http://localhost:3000/api/files", http);
   }
 
-  getFiles() {
-    return this.get<Array<FileResponse>>('');
+  getFiles(fileType : string | undefined) {
+    return this.get<Array<FileResponse>>('',{},fileType === undefined ? '': `file_type=${fileType}`);
   }
+
+  
 }
